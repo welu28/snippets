@@ -16,8 +16,7 @@ public class snippets {
     }
 
     public static int[] readArr(Scanner io) {
-        int[] arr = Arrays.stream(io.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-        return arr;
+        return Arrays.stream(io.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
     }
 
     public static int kadanes(int[] arr) {
