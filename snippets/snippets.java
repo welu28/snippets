@@ -32,4 +32,23 @@ public class snippets {
     }
 
     public static int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
+
+    // this is why I should switch to cpp
+    static class Pair implements Comparable<Pair> {
+        long turn;
+        int index;
+        
+        Pair(long turn, int index) {
+            this.turn = turn;
+            this.index = index;
+        }
+        
+        @Override
+        public int compareTo(Pair other) {
+            if (this.turn != other.turn) {
+                return Long.compare(this.turn, other.turn);
+            }
+            return Integer.compare(this.index, other.index);
+        }
+    }
 }
