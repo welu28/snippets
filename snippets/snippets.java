@@ -51,4 +51,23 @@ public class snippets {
             return Integer.compare(this.index, other.index);
         }
     }
+
+    public static boolean nextPermutation(int[] array) {
+        int i = array.length - 2;
+        while (i >= 0 && array[i] >= array[i + 1]) i--;
+        if (i < 0) return false;
+        int j = array.length - 1;
+        while (array[j] <= array[i]) j--;
+        swap(array, i, j);
+        for (int k = i + 1, l = array.length - 1; k < l; k++, l--) {
+            swap(array, k, l);
+        }
+        return true;
+    }
+    
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
