@@ -52,7 +52,7 @@ public class snippets {
         }
     }
 
-    public static boolean nextPermutation(int[] array) {
+    public static boolean nextPermutation(int[] array) { // go through all permutations lexicographically
         int i = array.length - 2;
         while (i >= 0 && array[i] >= array[i + 1]) i--;
         if (i < 0) return false;
@@ -69,5 +69,20 @@ public class snippets {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
+    }
+
+    public static int[][] rotate(int[][] arr, int n) { // rotate 45 degrees 
+        int N = 2 * n - 1; // new size
+		int[][] field = new int[N][N];
+		for (int r = 0; r < N; r++) {
+			Arrays.fill(field[r], -1);  // -1's indicate invalid locations (for prefix sums)
+		}
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				field[i + j][n - i + j - 1] = arr[i][j];
+			}
+		}
+        return field;
     }
 }
