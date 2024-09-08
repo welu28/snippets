@@ -85,4 +85,22 @@ public class snippets {
 		}
         return field;
     }
+
+	// prefix for kmp
+    public static int[] kmpPrefix(String s) {
+        int n = s.length();
+        int[] f = new int[n + 1];
+        
+        for (int i = 1, j = 0; i < n; i++) {
+            while (j > 0 && s.charAt(i) != s.charAt(j)) {
+                j = f[j];
+            }
+            if (s.charAt(i) == s.charAt(j)) {
+                j++;
+            }
+            f[i + 1] = j;
+        }
+        
+        return f;
+    }
 }
