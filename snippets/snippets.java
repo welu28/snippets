@@ -103,4 +103,27 @@ public class snippets {
         
         return f;
     }
+
+	// returns the 4 neighbors (shares 1 edge) of a cell in a matrix
+public static int[][] neighbors(int col, int row, int n, int m) {
+        int[][] res = new int[4][2];
+        for (int[] neighbor : res) Arrays.fill(neighbor, -1);
+        int[][] directions = {
+            {0, -1},  // left
+            {0, 1},   // right
+            {-1, 0},  // up
+            {1, 0}    // down
+        };
+
+        for (int i = 0; i < directions.length; i++) {
+            int newCol = col + directions[i][0];
+            int newRow = row + directions[i][1];
+            if (newCol >= 0 && newCol < n && newRow >= 0 && newRow < m) {
+                res[i][0] = newCol;
+                res[i][1] = newRow;
+            }
+        }
+
+        return res;
+    }
 }
