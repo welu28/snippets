@@ -2,6 +2,7 @@ package snippets;
 import java.util.*;
 
 public class snippets {
+	public static final long MOD = 1000000007L;
     public static long modExp(long a, long b, long M){
         long res = 1;
         while(b > 0){
@@ -125,5 +126,25 @@ public static int[][] neighbors(int col, int row, int n, int m) {
         }
 
         return res;
+    }
+
+public static long dp(int[] nums, int target) {
+        int n = nums.length;
+        long[][] dp = new long[n + 1][target + 1];
+
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= target; j++) {
+                dp[i][j] = dp[i - 1][j];
+                if (j >= nums[i - 1]) {
+                    dp[i][j] = (dp[i][j] + dp[i - 1][j - nums[i - 1]]) % MOD;
+                }
+            }
+        }
+
+        return dp[n][target] % MOD;
     }
 }
