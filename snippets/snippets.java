@@ -20,6 +20,7 @@ public class snippets {
         return Arrays.stream(io.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
     }
 
+	// kadanes max subarray sum
     public static int kadanes(int[] arr) {
         int max_so_far = arr[0];
         int max_ending_here = arr[0];
@@ -66,11 +67,6 @@ public class snippets {
         return true;
     }
     
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
 
     public static int[][] rotate(int[][] arr, int n) { // rotate 45 degrees 
         int N = 2 * n - 1; // new size
@@ -128,6 +124,7 @@ public static int[][] neighbors(int col, int row, int n, int m) {
         return res;
     }
 
+	// returns number of ways to achieve a sum using the elemnts w/ O(n*target) dp
 public static long dp(int[] nums, int target) {
         int n = nums.length;
         long[][] dp = new long[n + 1][target + 1];
@@ -146,5 +143,13 @@ public static long dp(int[] nums, int target) {
         }
 
         return dp[n][target] % MOD;
+    }
+
+	// for interactive problems
+public static int makeQuery(int a, int b, FastIO io) {
+        System.out.print("? " + a + " " + b);
+        System.out.flush();
+        int n = io.nextInt();
+        return n;
     }
 }
