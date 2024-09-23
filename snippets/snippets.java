@@ -152,4 +152,6 @@ public static int makeQuery(int a, int b, FastIO io) {
         int n = io.nextInt();
         return n;
     }
+
+
 }
