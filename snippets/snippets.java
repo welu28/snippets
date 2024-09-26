@@ -153,5 +153,9 @@ public static int makeQuery(int a, int b, FastIO io) {
         return n;
     }
 
+static long lcm(long a, long b) {
+        return a * b / gcd(a, b);
+    }
+
 
 }
