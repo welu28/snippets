@@ -157,5 +157,15 @@ static long lcm(long a, long b) {
         return a * b / gcd(a, b);
     }
 
+private static char inv(char dir) {
+        switch (dir) {
+            case 'N': return 'S';
+            case 'S': return 'N';
+            case 'E': return 'W';
+            case 'W': return 'E';
+            default: return ' ';
+        }
+    }
+
 
 }
