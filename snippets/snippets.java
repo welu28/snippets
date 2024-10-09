@@ -157,13 +157,12 @@ static long lcm(long a, long b) {
         return a * b / gcd(a, b);
     }
 
-private static char inv(char dir) {
-        switch (dir) {
-            case 'N': return 'S';
-            case 'S': return 'N';
-            case 'E': return 'W';
-            case 'W': return 'E';
-            default: return ' ';
+public static void sortReverse(int[] array) {
+        Arrays.sort(array);
+        for (int i = 0; i < array.length / 2; i++) {
+            int temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
         }
     }
 
