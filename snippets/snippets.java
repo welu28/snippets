@@ -166,5 +166,18 @@ public static void sortReverse(int[] array) {
         }
     }
 
-
+private static long pow(int base, int exp, int mod) {
+        long result = 1;
+        long current = base % mod;
+        
+        while (exp > 0) {
+            if ((exp & 1) == 1) {  // if exp is odd
+                result = (result * current) % mod;
+            }
+            current = (current * current) % mod;  // square the base
+            exp >>= 1;  // divide exp by 2
+        }
+        
+        return result;
+    }
 }
