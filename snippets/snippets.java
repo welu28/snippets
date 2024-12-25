@@ -180,4 +180,30 @@ private static long pow(int base, int exp, int mod) {
         
         return result;
     }
+
+private static int binarySearchLeft(long[] arr, long target, int start) {
+        int low = start, high = arr.length;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] >= target) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+
+    private static int binarySearchRight(long[] arr, long target, int start) {
+        int low = start, high = arr.length;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] > target) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
 }
